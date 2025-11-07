@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Virtual Interactivo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎱 Bingo Virtual Interactivo</h1>
+        </header>
+
+        <main>
+            <div class="main-content">
+                <!-- Sección de la rueda y número sorteado -->
+                <div class="game-section">
+                    <div class="wheel-container">
+                        <div class="bingo-wheel" id="bingoWheel">
+                            <div class="wheel-center">BINGO</div>
+                        </div>
+                        <div class="ball-display" id="ballDisplay">
+                            <div class="ball" id="ball">
+                                <span id="ballNumber">?</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="current-number">
+                        <div class="number-display" id="numberDisplay">
+                            <span class="letter" id="currentLetter">-</span>
+                            <span class="number" id="currentNumber">--</span>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button id="sortearBtn" class="btn btn-primary">🎲 Sortear Número</button>
+                        <button id="reiniciarBtn" class="btn btn-secondary">🔄 Reiniciar Juego</button>
+                    </div>
+
+                    <div class="game-info">
+                        <p>Números restantes: <span id="numerosRestantes">75</span></p>
+                    </div>
+                </div>
+
+                <!-- Tabla de Bingo -->
+                <div class="bingo-table-container">
+                    <h2>Tabla de Bingo</h2>
+                    <table class="bingo-table" id="bingoTable">
+                        <thead>
+                            <tr>
+                                <th class="col-b">B</th>
+                                <th class="col-i">I</th>
+                                <th class="col-n">N</th>
+                                <th class="col-g">G</th>
+                                <th class="col-o">O</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bingoTableBody">
+                            <!-- Se generará dinámicamente con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Historial -->
+            <div class="history-section">
+                <h3>Historial de Números Sorteados</h3>
+                <div class="history-container" id="historyContainer">
+                    <p class="no-history">Aún no se han sorteado números</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
